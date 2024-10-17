@@ -83,30 +83,41 @@ public class App{
 
 
         //5
-        LocalDate ld = LocalDate.of(1990, 1, 12);
-        Date currentDate = Date.from(ld.atStartOfDay(ZoneId.systemDefault()).toInstant());
-        List<Person> persons = new ArrayList<>();
-        persons.add(new Person(1L, "Bernard", "Tan", 30000.0, currentDate));
-        persons.add(new Person(2L, "Chris", "Tan", 20000.0, currentDate));
-        persons.add(new Person(3L, "Dennis", "Wong", 15000.0, currentDate));
-        persons.add(new Person(4L, "Thomas", "Chia", 5000.0, currentDate));
-        persons.add(new Person(5L, "Rick", "Ng", 35000.0, currentDate));
-        persons.add(new Person(6L, "Michael", "Choy", 12000.0, currentDate));
-        persons.add(new Person(7L, "Darren", "Loh", 32000.0, currentDate));
-        persons.add(new Person(8L, "May", "Tan", 28000.0, currentDate));
+        // LocalDate ld = LocalDate.of(1990, 1, 12);
+        // Date currentDate = Date.from(ld.atStartOfDay(ZoneId.systemDefault()).toInstant());
+        // List<Person> persons = new ArrayList<>();
+        // persons.add(new Person(1L, "Bernard", "Tan", 30000.0, currentDate));
+        // persons.add(new Person(2L, "Chris", "Tan", 20000.0, currentDate));
+        // persons.add(new Person(3L, "Dennis", "Wong", 15000.0, currentDate));
+        // persons.add(new Person(4L, "Thomas", "Chia", 5000.0, currentDate));
+        // persons.add(new Person(5L, "Rick", "Ng", 35000.0, currentDate));
+        // persons.add(new Person(6L, "Michael", "Choy", 12000.0, currentDate));
+        // persons.add(new Person(7L, "Darren", "Loh", 32000.0, currentDate));
+        // persons.add(new Person(8L, "May", "Tan", 28000.0, currentDate));
 
-        Comparator<Person> compare = Comparator.comparing(p -> p.getFirstName());
-        persons.sort(compare.reversed());
-        persons.forEach(p -> {
-            System.out.println(p.toString());
-        });
+        // Comparator<Person> compare = Comparator.comparing(p -> p.getFirstName());
+        // persons.sort(compare.reversed());
+        // persons.forEach(p -> {
+        //     System.out.println(p.toString());
+        // });
 
-        System.out.println("---------");
-        Comparator<Person> compareMultiple = Comparator.comparing(Person::getFirstName).thenComparing(Person::getLastName);
-        persons.sort(compareMultiple);
-        persons.forEach(p -> {
-            System.out.println(p.toString());
-        });
+        // System.out.println("---------");
+        // Comparator<Person> compareMultiple = Comparator.comparing(Person::getFirstName).thenComparing(Person::getLastName);
+        // persons.sort(compareMultiple);
+        // persons.forEach(p -> {
+        //     System.out.println(p.toString());
+        // });
 
+        //6
+        MyInterface<Integer> addOperation = (a, b) -> {
+            return a + b;
+        };
+
+        MyInterface<Integer> multiplyOperation = (a, b) -> {
+            return a * b;
+        };
+
+        System.out.println("add Operation: " + addOperation.process(3, 2));
+        System.out.println("multiply Operation: " + multiplyOperation.process(3, 2));
     }
 }
