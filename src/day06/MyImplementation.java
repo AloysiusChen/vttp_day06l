@@ -2,6 +2,7 @@ package day06;
 
 public class MyImplementation implements Runnable {
 
+    //2 and 3
     @Override
     public void run() {
         RunningThreadCount();
